@@ -7,7 +7,7 @@ if (!$conn) {
 
 try {
     $sql = "SELECT * FROM producten";
-    $stmt = $conn->query($sql);
+    $stmt = $PDO->query($sql);
 
     $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
