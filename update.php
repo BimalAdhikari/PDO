@@ -1,7 +1,7 @@
 <?php
 
     // require het db.php in het bovenstaande bestand.
-    require 'Database_Connectie.php';
+    require 'select.php';
     
     // Parameterwaarden definiëren
 try {
