@@ -1,9 +1,9 @@
 <?php
 
-    // require het db.php in het bovenstaande bestand.
+    // Include the select.php file for database connection or other dependencies.
     require 'select.php';
     
-    // Parameterwaarden definiëren
+    // Define parameter values and handle the form submission.
 try {
     if (isset($_POST["submit_knop"])) {
         $product_naam = $_POST['product_naam'];
@@ -26,17 +26,17 @@ try {
 
         $stmt->execute($placeholders);
 
-        // Query uitvoeren met execute
+        // Execute the query and check if it was successful.
         if ($stmt) {
-            echo "Record succesvol bijgewerkt.<br><br>";
+            echo "Record successfully updated.<br><br>";
             header("Refresh:3; url = select.php");
         } else {
-            echo "Fout bij bijwerken van record.<br><br>";
+            echo "Error updating the record.<br><br>";
         }
     } 
 } 
 catch (PDOException $e) {
-    echo "Er is een fout opgetreden: " + $e->getMessage() + "<br>";
+    echo "An error occurred: " . $e->getMessage() . "<br>";
 }
     
 
@@ -51,7 +51,7 @@ catch (PDOException $e) {
 </head>
 
 <body>
-    <!-- Voeg 3 input fields in je formulier toe (product_naam, prijs_per_stuk, omschrijving) en een button. -->
+    <!-- Add 3 input fields to the form (product_naam, prijs_per_stuk, omschrijving) and a submit button. -->
     <form method="POST">
         <label for="product_naam">Naam:</label><br>
         <input type="text" name="product_naam" placeholder="Product naam" required pattern="[A-Za-z\s]+"> <br><br>
